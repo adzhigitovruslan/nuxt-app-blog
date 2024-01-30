@@ -47,7 +47,7 @@ const createStore = () => {
         };
         return this.$axios
           .$post(
-            "https://nuxt-blog.firebaseio.com/posts.json?auth=" +
+            "https://nuxt-blog-cba4c-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json?auth=" +
               vuexContext.state.token,
             createdPost
           )
@@ -59,7 +59,7 @@ const createStore = () => {
       editPost(vuexContext, editedPost) {
         return this.$axios
           .$put(
-            "https://nuxt-blog.firebaseio.com/posts/" +
+            "https://nuxt-blog-cba4c-default-rtdb.asia-southeast1.firebasedatabase.app//posts/" +
               editedPost.id +
               ".json?auth=" +
               vuexContext.state.token,
@@ -75,11 +75,11 @@ const createStore = () => {
       },
       authenticateUser(vuexContext, authData) {
         let authUrl =
-          "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" +
+          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" +
           process.env.fbAPIKey;
         if (!authData.isLogin) {
           authUrl =
-            "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" +
+            "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" +
             process.env.fbAPIKey;
         }
         return this.$axios

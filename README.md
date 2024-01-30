@@ -1,6 +1,6 @@
-# nuxt-course
+# nuxt application
 
-> Nuxt.js course for Udemy
+Deploy: https://nuxt-app-fytg.onrender.com
 
 ## Build Setup
 
