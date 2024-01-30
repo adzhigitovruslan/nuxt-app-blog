@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
+    "build": "node_modules/nuxt/bin/nuxt.js build -c ./nuxt.config.js",
+    "start": "node_modules/nuxt/bin/nuxt.js start -c ./nuxt.config.js",
     "generate": "nuxt generate"
   },
   "dependencies": {
