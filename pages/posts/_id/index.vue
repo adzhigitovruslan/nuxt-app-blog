@@ -3,20 +3,13 @@
     <section class="post">
       <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">
-          Last updated on {{ loadedPost.updatedDate | date }}
-        </div>
+        <div class="post-detail">Last updated on {{ loadedPost.updatedDate | date }}</div>
         <div class="post-detail">Written by {{ loadedPost.author }}</div>
       </div>
       <p class="post-content">{{ loadedPost.content }}</p>
     </section>
     <section class="post-feedback">
-      <p>
-        Let me know what you think about the post, send a mail to
-        <a href="mailto:feedback@my-awesome-domain.com"
-          >feedback@my-awesome-domain.com</a
-        >.
-      </p>
+      <p>Let me know what you think about the post, send a mail to <a href="mailto:feedback@my-awesome-domain.com">feedback@my-awesome-domain.com</a>.</p>
     </section>
   </div>
 </template>
@@ -24,21 +17,20 @@
 <script>
 export default {
   asyncData(context) {
-    return context.app.$axios
-      .$get(
-        "/posts/" +
-          context.params.id +
-          ".json"
-      )
-      .then((data) => {
+    return context.app.$axios.$get('/posts/' + context.params.id + '.json')
+      .then(data => {
         return {
-          loadedPost: data,
-        };
+          loadedPost: data
+        }
       })
-      .catch((e) => context.error(e));
+      .catch(e => context.error(e))
   },
+  head: {
+    title: 'A Blog Post'
+  }
 };
 </script>
+
 
 <style scoped>
 .single-post-page {

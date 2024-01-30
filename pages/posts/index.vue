@@ -6,13 +6,15 @@
 
 <script>
 export default {
+  middleware: 'log',
   computed: {
     loadedPosts() {
-      return this.$store.getters.loadedPosts;
-    },
-  },
+      return this.$store.getters.loadedPosts
+    }
+  }
 };
 </script>
+
 
 <style scoped>
 .posts-page {
